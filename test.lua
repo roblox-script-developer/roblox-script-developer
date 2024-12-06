@@ -20,5 +20,6 @@ while true do
     for _, player in ipairs(Players:GetPlayers()) do
         highlightPlayer(player)
     end
+    print("Refreshed")
     wait(1)
 end
