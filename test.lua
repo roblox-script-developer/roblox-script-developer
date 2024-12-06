@@ -1,4 +1,5 @@
 local Players = game:GetService("Players")
+local LocalPlayer = Players.LocalPlayer
 
 local function highlightPlayer(player)
     local character = player.Character
@@ -13,6 +14,20 @@ local function highlightPlayer(player)
         highlightPart.Parent = workspace
 
         highlightPart.CFrame = character.HumanoidRootPart.CFrame
+
+        local nameTag = Instance.new("BillboardGui")
+        nameTag.Size = UDim2.new(0, 100, 0, 50)
+        nameTag.Adornee = character.Head
+        nameTag.Parent = character.Head
+        nameTag.StudsOffset = Vector3.new(0, 2, 0)
+
+        local nameLabel = Instance.new("TextLabel")
+        nameLabel.Text = player.Name
+        nameLabel.Size = UDim2.new(1, 0, 1, 0)
+        nameLabel.BackgroundTransparency = 1
+        nameLabel.TextColor3 = Color3.fromRGB(255, 255, 255)
+        nameLabel.TextScaled = true
+        nameLabel.Parent = nameTag
     end
 end
 
